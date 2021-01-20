@@ -274,6 +274,10 @@ public class IndigoDashboardsPage extends AbstractFragment {
         return ConfigurationPanel.getInstance(browser);
     }
 
+    public InsightConfigurationPanel getInsightConfigurationPanel() {
+        return InsightConfigurationPanel.getInstance(browser);
+    }
+
     public IndigoDashboardsPage clickDashboardBody() {
         waitForElementPresent(cssSelector(DASHBOARD_BODY), getRoot()).click();
         return this;
