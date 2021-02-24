@@ -142,8 +142,6 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
         indigoDashboardsPage.openExtendedDateFilterPanel().selectPeriod(DateRange.ALL_TIME).apply();
         assertEquals(indigoDashboardsPage.getInsightTitles(), asList(COLUMN_INSIGHT));
         indigoDashboardsPage.waitForDashboardLoad().saveEditModeWithWidgets();
-        indigoDashboardsPage.saveEditMode();
-        indigoDashboardsPage.waitForDashboardLoad().isEditButtonVisible();
         assertEquals(indigoDashboardsPage.getInsightTitles(), asList(COLUMN_INSIGHT));
 
         assertEquals(indigoDashboardsPage.getDateFilterSelection(), "01/01/201sdkfsndfk2–12/31/2012");
