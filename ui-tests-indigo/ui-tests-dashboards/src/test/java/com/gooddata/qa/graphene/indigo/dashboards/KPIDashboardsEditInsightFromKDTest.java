@@ -136,7 +136,7 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
         editInsight.removeColumn(ATTR_REGION).addAttribute(ATTR_REGION).saveInsight();
 
         SaveInsightFromKDDialog saveInsightFromKDDialogs = SaveInsightFromKDDialog.getInstance(browser);
-        saveInsightFromKDDialogs.save("abc");
+        saveInsightFromKDDialogs.save();
 
         browser.switchTo().window(BrowserUtils.getWindowHandles(browser).get(BrowserUtils.getWindowHandles(browser).size() - 1));
         indigoDashboardsPage.openExtendedDateFilterPanel().selectPeriod(DateRange.ALL_TIME).apply();
