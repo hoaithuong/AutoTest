@@ -22,7 +22,7 @@ public class SaveInsightFromKDDialog extends AbstractFragment {
     private WebElement submitButton;
 
 //    @FindBy(css = ".input-radio-label input:not([value*='update'])")
-    @FindBy(css = ".input-label-text:last-child")
+    @FindBy(css = ".gd-dialog-content:last-child")
     private WebElement createCopyOption;
 
     public static final String ROOT_SELECTOR = ".s-save-report-from-kd-dialog";
