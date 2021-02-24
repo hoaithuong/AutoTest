@@ -632,7 +632,7 @@ public class AnalysisPage extends AbstractFragment {
 
     public AnalysisPage saveInsight() {
         getPageHeader().saveInsight();
-        waitForIndigoMessageDisappear(browser);
+//        waitForIndigoMessageDisappear(browser);
         return this;
     }
 
