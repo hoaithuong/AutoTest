@@ -32,9 +32,11 @@ public class SaveInsightFromKDDialog extends AbstractFragment {
         return isElementVisible(cssSelector(ROOT_SELECTOR), browser);
     }
 
-    public void save(final String name) {
-        enterName(name).clickSubmitButton();
-        waitForFragmentNotVisible(this);
+    public void save() {
+//        enterName(name).clickSubmitButton();
+//        waitForFragmentNotVisible(this);
+        waitForElementVisible(submitButton).click();
+        waitForElementNotVisible(submitButton);
     }
 
     public void clickSubmitButton() {
