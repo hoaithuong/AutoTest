@@ -159,10 +159,10 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
 
         browser.switchTo().window(BrowserUtils.getWindowHandles(browser).get(BrowserUtils.getWindowHandles(browser).size() - 1));
 
-        assertEquals(indigoDashboardsPage.getInsightTitles(), asList(COLUMN_INSIGHT));
+        assertEquals(indigoDashboardsPage.getInsightTitles(), asList("abc"));
         indigoDashboardsPage.getSaveButton().click();
 //        indigoDashboardsPage.waitForDashboardLoad().saveEditModeWithWidgets();
-        assertEquals(indigoDashboardsPage.getInsightTitles(), asList(COLUMN_INSIGHT));
+        assertEquals(indigoDashboardsPage.getInsightTitles(), asList("abc"));
 
         assertEquals(indigoDashboardsPage.getDateFilterSelection(), "01/01/201sdkfsndfk2–12/31/2012");
     }
