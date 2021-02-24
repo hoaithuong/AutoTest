@@ -10,6 +10,7 @@ import com.gooddata.qa.graphene.enums.indigo.ReportType;
 import com.gooddata.qa.graphene.enums.project.ProjectFeatureFlags;
 import com.gooddata.qa.graphene.enums.user.UserRoles;
 import com.gooddata.qa.graphene.fragments.indigo.analyze.dialog.SaveInsightDialog;
+import com.gooddata.qa.graphene.fragments.indigo.analyze.dialog.SaveInsightFromKDDialog;
 import com.gooddata.qa.graphene.fragments.indigo.analyze.pages.AnalysisPage;
 import com.gooddata.qa.graphene.fragments.indigo.analyze.reports.ChartReport;
 import com.gooddata.qa.graphene.fragments.indigo.analyze.reports.PivotTableReport;
@@ -133,6 +134,9 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
         insightConfigurationPanel = indigoDashboardsPage.getInsightConfigurationPanel();
         AnalysisPage editInsight = insightConfigurationPanel.clickEditInsight();
         editInsight.removeColumn(ATTR_REGION).addAttribute(ATTR_REGION).saveInsight();
+
+        SaveInsightFromKDDialog saveInsightFromKDDialogs = SaveInsightFromKDDialog.getInstance(browser);
+        saveInsightFromKDDialogs.save("abc");
 
         browser.switchTo().window(BrowserUtils.getWindowHandles(browser).get(BrowserUtils.getWindowHandles(browser).size() - 1));
         indigoDashboardsPage.openExtendedDateFilterPanel().selectPeriod(DateRange.ALL_TIME).apply();
