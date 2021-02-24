@@ -21,7 +21,7 @@ public class SaveInsightFromKDDialog extends AbstractFragment {
     @FindBy(className = "s-dialog-submit-button")
     private WebElement submitButton;
 
-    @FindBy(css = ".input-radio-label input:last-child")
+    @FindBy(css = ".input-radio-label input:not([value='update'])")
     private WebElement createCopyOption;
 
     public static final String ROOT_SELECTOR = ".s-save-report-from-kd-dialog";
