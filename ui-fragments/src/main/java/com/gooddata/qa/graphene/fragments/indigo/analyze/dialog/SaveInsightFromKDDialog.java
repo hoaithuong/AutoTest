@@ -12,7 +12,7 @@ import static org.openqa.selenium.By.cssSelector;
 
 public class SaveInsightFromKDDialog extends AbstractFragment {
 
-    @FindBy(className = "name-insight-dialog-input")
+    @FindBy(className = "gd-input-field")
     private WebElement nameTextBox;
 
     @FindBy(className = "s-dialog-cancel-button")
@@ -21,8 +21,8 @@ public class SaveInsightFromKDDialog extends AbstractFragment {
     @FindBy(className = "s-dialog-submit-button")
     private WebElement submitButton;
 
-    @FindBy(css = ".input-radio-label input")
-    private WebElement radioSaveInsight;
+    @FindBy(css = ".input-radio-label input:last-child")
+    private WebElement createCopyOption;
 
     public static final String ROOT_SELECTOR = ".s-save-report-from-kd-dialog";
 
@@ -41,7 +41,7 @@ public class SaveInsightFromKDDialog extends AbstractFragment {
     }
 
     public void createCopy(final String name) {
-        waitForElementEnabled(radioSaveInsight).getAttribute("value").contains("create");
+        waitForElementVisible(createCopyOption).click();
         enterName(name).clickSubmitButton();
         waitForFragmentNotVisible(this);
     }
