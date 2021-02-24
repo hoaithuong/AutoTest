@@ -21,6 +21,9 @@ public class SaveInsightFromKDDialog extends AbstractFragment {
     @FindBy(className = "s-dialog-submit-button")
     private WebElement submitButton;
 
+    @FindBy(css = ".input-radio-label input")
+    private WebElement radioSaveInsight;
+
     public static final String ROOT_SELECTOR = ".s-save-report-from-kd-dialog";
 
     public static SaveInsightFromKDDialog getInstance(SearchContext searchContext) {
@@ -32,11 +35,15 @@ public class SaveInsightFromKDDialog extends AbstractFragment {
         return isElementVisible(cssSelector(ROOT_SELECTOR), browser);
     }
 
-    public void save() {
-//        enterName(name).clickSubmitButton();
-//        waitForFragmentNotVisible(this);
+    public void saveInsight() {
         waitForElementVisible(submitButton).click();
         waitForElementNotVisible(submitButton);
+    }
+
+    public void createCopy(final String name) {
+        waitForElementEnabled(radioSaveInsight).getAttribute("value").contains("create");
+        enterName(name).clickSubmitButton();
+        waitForFragmentNotVisible(this);
     }
 
     public void clickSubmitButton() {
