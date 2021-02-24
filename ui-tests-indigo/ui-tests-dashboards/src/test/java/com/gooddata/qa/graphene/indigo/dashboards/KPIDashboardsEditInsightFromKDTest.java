@@ -141,9 +141,12 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
         browser.switchTo().window(BrowserUtils.getWindowHandles(browser).get(BrowserUtils.getWindowHandles(browser).size() - 1));
         indigoDashboardsPage.openExtendedDateFilterPanel().selectPeriod(DateRange.ALL_TIME).apply();
         assertEquals(indigoDashboardsPage.getInsightTitles(), asList(COLUMN_INSIGHT));
-        indigoDashboardsPage.getSaveButton().click();
         indigoDashboardsPage.waitForDashboardLoad().saveEditModeWithWidgets();
+        indigoDashboardsPage.getSaveButton().click();
+        indigoDashboardsPage.waitForDashboardLoad().isEditButtonVisible();
         assertEquals(indigoDashboardsPage.getInsightTitles(), asList(COLUMN_INSIGHT));
+
+        assertEquals(indigoDashboardsPage.getDateFilterSelection(), "01/01/201sdkfsndfk2–12/31/2012");
     }
 
     @Test(dependsOnGroups = {"createProject"}, description = "This test case covered the creating new table on KD")
@@ -160,7 +163,6 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
         indigoDashboardsPage.openExtendedDateFilterPanel().selectPeriod(DateRange.ALL_TIME).apply();
         assertEquals(indigoDashboardsPage.getInsightTitles(), asList("abc"));
         indigoDashboardsPage.getSaveButton().click();
-//        indigoDashboardsPage.waitForDashboardLoad().saveEditModeWithWidgets();
         assertEquals(indigoDashboardsPage.getInsightTitles(), asList("abc"));
 
         assertEquals(indigoDashboardsPage.getDateFilterSelection(), "01/01/201sdkfsndfk2–12/31/2012");
