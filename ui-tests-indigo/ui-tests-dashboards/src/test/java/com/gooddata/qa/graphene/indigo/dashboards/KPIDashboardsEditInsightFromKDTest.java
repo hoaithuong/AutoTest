@@ -131,7 +131,6 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
     @Test(dependsOnGroups = {"createProject"}, description = "This test case covered the creating new table on KD")
     public void saveEditingInsightFromKD() {
         initIndigoDashboardsPage().addDashboard().addInsight(COLUMN_INSIGHT).selectWidgetByHeadline(Insight.class, COLUMN_INSIGHT);
-        indigoDashboardsPage.openExtendedDateFilterPanel().selectPeriod(DateRange.ALL_TIME).apply();
         insightConfigurationPanel = indigoDashboardsPage.getInsightConfigurationPanel();
         AnalysisPage editInsight = insightConfigurationPanel.clickEditInsight();
         editInsight.removeColumn(ATTR_REGION).addAttribute(ATTR_REGION).saveInsight();
@@ -140,6 +139,7 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
         saveInsightFromKDDialogs.saveInsight();
 
         browser.switchTo().window(BrowserUtils.getWindowHandles(browser).get(BrowserUtils.getWindowHandles(browser).size() - 1));
+        indigoDashboardsPage.openExtendedDateFilterPanel().selectPeriod(DateRange.ALL_TIME).apply();
         assertEquals(indigoDashboardsPage.getInsightTitles(), asList(COLUMN_INSIGHT));
         indigoDashboardsPage.getSaveButton().click();
         indigoDashboardsPage.waitForDashboardLoad().saveEditModeWithWidgets();
@@ -149,7 +149,6 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
     @Test(dependsOnGroups = {"createProject"}, description = "This test case covered the creating new table on KD")
     public void createCopyEditingInsightFromKD() {
         initIndigoDashboardsPage().addDashboard().addInsight(COLUMN_INSIGHT).selectWidgetByHeadline(Insight.class, COLUMN_INSIGHT);
-        indigoDashboardsPage.openExtendedDateFilterPanel().selectPeriod(DateRange.ALL_TIME).apply();
         insightConfigurationPanel = indigoDashboardsPage.getInsightConfigurationPanel();
         AnalysisPage editInsight = insightConfigurationPanel.clickEditInsight();
         editInsight.removeColumn(ATTR_REGION).addAttribute(ATTR_REGION).saveInsight();
@@ -158,7 +157,7 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
         saveInsightFromKDDialogs.createCopy("abc");
 
         browser.switchTo().window(BrowserUtils.getWindowHandles(browser).get(BrowserUtils.getWindowHandles(browser).size() - 1));
-
+        indigoDashboardsPage.openExtendedDateFilterPanel().selectPeriod(DateRange.ALL_TIME).apply();
         assertEquals(indigoDashboardsPage.getInsightTitles(), asList("abc"));
         indigoDashboardsPage.getSaveButton().click();
 //        indigoDashboardsPage.waitForDashboardLoad().saveEditModeWithWidgets();
