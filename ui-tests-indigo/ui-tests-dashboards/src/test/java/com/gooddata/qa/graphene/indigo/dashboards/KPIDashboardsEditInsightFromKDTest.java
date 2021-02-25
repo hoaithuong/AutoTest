@@ -144,27 +144,26 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
         indigoDashboardsPage.waitForDashboardLoad().saveEditModeWithWidgets();
         assertEquals(indigoDashboardsPage.getInsightTitles(), asList(COLUMN_INSIGHT));
 
-        assertEquals(indigoDashboardsPage.getDateFilterSelection(), "01/01/201sdkfsndfk2–12/31/2012");
     }
 
-//    @Test(dependsOnGroups = {"createProject"}, description = "This test case covered the creating new table on KD")
-//    public void createCopyEditingInsightFromKD() {
-//        initIndigoDashboardsPage().addDashboard().addInsight(COLUMN_INSIGHT).selectWidgetByHeadline(Insight.class, COLUMN_INSIGHT);
-//        insightConfigurationPanel = indigoDashboardsPage.getInsightConfigurationPanel();
-//        AnalysisPage editInsight = insightConfigurationPanel.clickEditInsight();
-//        editInsight.removeColumn(ATTR_REGION).addAttribute(ATTR_REGION).saveInsight();
-//
-//        SaveInsightFromKDDialog saveInsightFromKDDialogs = SaveInsightFromKDDialog.getInstance(browser);
-//        saveInsightFromKDDialogs.createCopy("abc");
-//
-//        browser.switchTo().window(BrowserUtils.getWindowHandles(browser).get(BrowserUtils.getWindowHandles(browser).size() - 1));
-//        indigoDashboardsPage.openExtendedDateFilterPanel().selectPeriod(DateRange.ALL_TIME).apply();
-//        assertEquals(indigoDashboardsPage.getInsightTitles(), asList("abc"));
-//        indigoDashboardsPage.getSaveButton().click();
-//        assertEquals(indigoDashboardsPage.getInsightTitles(), asList("abc"));
-//
+    @Test(dependsOnGroups = {"createProject"}, description = "This test case covered the creating new table on KD")
+    public void createCopyEditingInsightFromKD() {
+        initIndigoDashboardsPage().addDashboard().addInsight(COLUMN_INSIGHT).selectWidgetByHeadline(Insight.class, COLUMN_INSIGHT);
+        insightConfigurationPanel = indigoDashboardsPage.getInsightConfigurationPanel();
+        AnalysisPage editInsight = insightConfigurationPanel.clickEditInsight();
+        editInsight.removeColumn(ATTR_REGION).addAttribute(ATTR_REGION).saveInsight();
+
+        SaveInsightFromKDDialog saveInsightFromKDDialogs = SaveInsightFromKDDialog.getInstance(browser);
+        saveInsightFromKDDialogs.createCopy("abc");
+
+        browser.switchTo().window(BrowserUtils.getWindowHandles(browser).get(BrowserUtils.getWindowHandles(browser).size() - 1));
+        indigoDashboardsPage.openExtendedDateFilterPanel().selectPeriod(DateRange.ALL_TIME).apply();
+        assertEquals(indigoDashboardsPage.getInsightTitles(), asList("abc"));
+        indigoDashboardsPage.getSaveButton().click();
+        assertEquals(indigoDashboardsPage.getInsightTitles(), asList("abc"));
+
 //        assertEquals(indigoDashboardsPage.getDateFilterSelection(), "01/01/201sdkfsndfk2–12/31/2012");
-//    }
+    }
 
     private String createInsight(String insightTitle, List<String> metricsTitle, List<Pair<String, CategoryBucket.Type>> attributeConfigurations) {
         return indigoRestRequest.createInsight(
