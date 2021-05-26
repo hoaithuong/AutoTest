@@ -128,7 +128,7 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
         };
     }
 
-    @Test(dependsOnGroups = {"createProject"}, description = "This test case covered the creating new table on KD")
+    @Test(dependsOnGroups = {"createProject"})
     public void saveEditingInsightFromKD() {
         initIndigoDashboardsPage().addDashboard().addInsight(COLUMN_INSIGHT).selectWidgetByHeadline(Insight.class, COLUMN_INSIGHT);
         insightConfigurationPanel = indigoDashboardsPage.getInsightConfigurationPanel();
@@ -146,7 +146,7 @@ public class KPIDashboardsEditInsightFromKDTest extends AbstractDashboardTest {
 
     }
 
-    @Test(dependsOnGroups = {"createProject"}, description = "This test case covered the creating new table on KD")
+    @Test(dependsOnGroups = {"createProject"})
     public void createCopyEditingInsightFromKD() {
         initIndigoDashboardsPage().addDashboard().addInsight(COLUMN_INSIGHT).selectWidgetByHeadline(Insight.class, COLUMN_INSIGHT);
         insightConfigurationPanel = indigoDashboardsPage.getInsightConfigurationPanel();
